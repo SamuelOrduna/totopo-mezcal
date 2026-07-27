@@ -11,15 +11,9 @@ Sitio de marca de Totopo Mezcal Artesanal — historia, proceso de producción y
 
 Los assets de marca (logo, imagotipo, patrones oaxaqueños) vienen de `/home/samuel/Totopo-mezcal`, redimensionados a `src/assets/brand/`.
 
-## Antes de deployar en serio: configurá el WhatsApp
+## Configuración
 
-Abrí `src/data/content.ts` y reemplazá `WHATSAPP_NUMBER` por el número real de WhatsApp Business (solo dígitos, con código de país, sin `+`):
-
-```ts
-export const WHATSAPP_NUMBER = '5215500000000'
-```
-
-Ahí mismo podés revisar/editar `INSTAGRAM_HANDLE`, la descripción del producto y el precio (no se puso un precio en pantalla porque no había uno confirmado).
+`src/data/content.ts` tiene `WHATSAPP_NUMBER` (ya configurado), `INSTAGRAM_HANDLE`, la descripción del producto y el resto del wording. No hay precio en pantalla porque no había uno confirmado — se puede agregar ahí mismo cuando se confirme.
 
 ## Desarrollo
 

@@ -1,5 +1,4 @@
-// TODO: reemplazar por el número real de WhatsApp Business (con código de país, sin +).
-export const WHATSAPP_NUMBER = '5215500000000'
+export const WHATSAPP_NUMBER = '525574516577'
 export const INSTAGRAM_HANDLE = '@totopomezcal'
 export const INSTAGRAM_URL = 'https://instagram.com/totopomezcal'
 export const ORIGIN = 'Santiago Matatlán, Oaxaca, México'
