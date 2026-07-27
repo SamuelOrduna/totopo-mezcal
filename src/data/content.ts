@@ -32,6 +32,18 @@ export const story = {
   ],
 }
 
+export const xolo = {
+  eyebrow: 'El guardián',
+  title: 'Un xoloitzcuintle en cada brindis',
+  body: 'Para los antiguos mexicas, el xoloitzcuintle era un guía sagrado: acompañaba el alma en su paso al Mictlán. Nosotros lo vemos igual — un compañero real, sin pretensiones, que hace que cada camino (y cada brindis) se sienta acompañado. Por eso Totopo lleva su nombre y su espíritu.',
+}
+
+export const gallery = {
+  eyebrow: 'Para cualquier ocasión',
+  title: 'Totopo donde sea que estés',
+  subtitle: 'De la sierra de Oaxaca a la playa, del centro histórico a Europa — así viaja Totopo con nuestra manada.',
+}
+
 export const mission = {
   title: 'Misión',
   body: 'Hacer de cada encuentro una expresión sincera y auténtica de lo que somos.',
@@ -81,14 +93,10 @@ export const process = {
   ],
 }
 
-export const product = {
-  eyebrow: 'Producto',
-  name: 'Totopo Mezcal Espadín',
-  size: '750ml',
-  description:
-    'Un espadín suave y de baja graduación, ideal para iniciarse en el mezcal o para disfrutarlo con experiencia. 100% artesanal, cocido en horno de piedra y destilado en alambique de cobre.',
-  cta: 'Consultar disponibilidad y precio',
-  waMessage: 'Hola Totopo Mezcal, me interesa el Espadín 750ml 🌵',
+export const shop = {
+  eyebrow: 'La tienda',
+  title: 'Llévate un pedazo de Oaxaca',
+  subtitle: 'Agrega al carrito y armamos tu pedido directo por WhatsApp — sin vueltas.',
 }
 
 export const contact = {
