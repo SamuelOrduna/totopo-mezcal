@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { X, Plus, Minus, Trash2, MessageCircle, ShoppingBag, ArrowRight } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 import { buildOrderLink } from '../lib/cartWhatsapp'
+import GoldSweep from './GoldSweep'
 
 export default function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { lines, totalPrice, increment, decrement, remove, clear } = useCart()
@@ -127,8 +128,9 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
                 target="_blank"
                 rel="noopener"
                 aria-disabled={lines.length === 0}
-                className="glass-shine mt-4 flex items-center justify-center gap-2 rounded-full bg-gold-500 px-4 py-3.5 font-eyebrow text-sm text-teal-950 transition hover:scale-[1.02] hover:bg-gold-300 aria-disabled:pointer-events-none aria-disabled:opacity-40"
+                className="glass-shine gold-glow relative mt-4 flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gold-500 px-4 py-3.5 font-eyebrow text-sm text-teal-950 transition hover:scale-[1.02] hover:bg-gold-300 aria-disabled:pointer-events-none aria-disabled:opacity-40"
               >
+                {lines.length > 0 && <GoldSweep triggerKey={lines.length} />}
                 <MessageCircle size={16} strokeWidth={2.5} />
                 Pedir por WhatsApp
               </a>
@@ -136,8 +138,9 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
               {lines.length > 0 && (
                 <button
                   onClick={clear}
-                  className="mt-3 w-full text-center font-body text-xs text-cream-200/40 hover:text-cream-100 light:text-teal-900/40 light:hover:text-teal-950"
+                  className="mt-3 flex w-full items-center justify-center gap-1.5 text-center font-eyebrow text-xs text-cream-100/70 transition hover:text-wine-600 light:text-teal-900/60 light:hover:text-wine-700"
                 >
+                  <Trash2 size={12} strokeWidth={2} />
                   Vaciar carrito
                 </button>
               )}

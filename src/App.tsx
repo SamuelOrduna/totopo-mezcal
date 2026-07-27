@@ -13,6 +13,7 @@ import ProductSection from './components/ProductSection'
 import ContactFooter from './components/ContactFooter'
 import CartDrawer from './components/CartDrawer'
 import CartBar from './components/CartBar'
+import InstallBanner from './components/InstallBanner'
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true)
@@ -33,7 +34,12 @@ export default function App() {
       </main>
       <ContactFooter />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
-      {!cartOpen && <CartBar onOpen={() => setCartOpen(true)} />}
+      {!cartOpen && (
+        <>
+          <CartBar onOpen={() => setCartOpen(true)} />
+          <InstallBanner />
+        </>
+      )}
     </CartProvider>
   )
 }

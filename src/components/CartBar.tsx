@@ -18,7 +18,7 @@ export default function CartBar({ onOpen }: { onOpen: () => void }) {
         >
           <button
             onClick={onOpen}
-            className="glass-shine relative flex w-full items-center gap-3 overflow-hidden rounded-2xl bg-gold-500 px-5 py-4 text-teal-950 shadow-xl shadow-black/40 transition hover:bg-gold-300 sm:w-auto sm:min-w-[22rem] sm:rounded-full"
+            className="glass-shine gold-glow relative flex w-full items-center gap-3 overflow-hidden rounded-2xl bg-gold-500 px-5 py-4 text-teal-950 transition hover:bg-gold-300 sm:w-auto sm:min-w-[22rem] sm:rounded-full"
           >
             <GoldSweep triggerKey={totalCount} />
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-950/15">
