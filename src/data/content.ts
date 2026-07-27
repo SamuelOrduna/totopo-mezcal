@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = '525574516577'
+export const WHATSAPP_NUMBER = '529511349785'
 export const INSTAGRAM_HANDLE = '@totopomezcal'
 export const INSTAGRAM_URL = 'https://instagram.com/totopomezcal'
 export const ORIGIN = 'Santiago Matatlán, Oaxaca, México'

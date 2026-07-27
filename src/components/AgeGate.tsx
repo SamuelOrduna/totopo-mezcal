@@ -6,17 +6,19 @@ import PatternDivider from './PatternDivider'
 
 const STORAGE_KEY = 'totopo-age-verified'
 
-export default function AgeGate() {
+export default function AgeGate({ onVerified }: { onVerified?: () => void } = {}) {
   const [status, setStatus] = useState<'checking' | 'gate' | 'denied' | 'open'>('checking')
 
   useEffect(() => {
     const verified = localStorage.getItem(STORAGE_KEY) === 'true'
     setStatus(verified ? 'open' : 'gate')
+    if (verified) onVerified?.()
   }, [])
 
   function confirm() {
     localStorage.setItem(STORAGE_KEY, 'true')
     setStatus('open')
+    onVerified?.()
   }
 
   if (status === 'checking' || status === 'open') return null
