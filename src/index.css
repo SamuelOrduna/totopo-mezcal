@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream-50: #fbf3e4;
+  --color-cream-100: #f3dec1;
+  --color-cream-200: #e8cba2;
+
+  --color-teal-950: #041b1d;
+  --color-teal-900: #072e30;
+  --color-teal-800: #0c3f42;
+  --color-teal-700: #0e4548;
+  --color-teal-500: #365f69;
+
+  --color-gold-300: #f0d375;
+  --color-gold-500: #e3bd2d;
+  --color-olive-600: #918437;
+
+  --color-wine-600: #9c3450;
+  --color-wine-700: #802942;
+  --color-oxblood-900: #471818;
+
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --font-body: "Poppins", system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  background: var(--color-teal-950);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-cream-50);
+  color: var(--color-teal-950);
+  min-height: 100svh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.font-eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-gold-500);
+  color: var(--color-teal-950);
+}
+
+/* Grano sutil para que los bloques de color plano no se vean digitales/chatos. */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Tira de patrón oaxaqueño (Mitla/Estampado/Dobles/Picos) repetida en X,
+   usada como separador entre secciones en vez de una línea genérica. */
+.pattern-strip {
+  background-image: var(--pattern-image);
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: auto 100%;
+}
+
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.animate-float-gentle {
+  animation: float-gentle 7s ease-in-out infinite;
+}
