@@ -12,8 +12,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.png', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Totopo Mezcal Artesanal',
-        short_name: 'Totopo',
+        name: 'Totopo Mezcal',
+        short_name: 'Totopo Mezcal',
         description:
           'Mezcal artesanal de Santiago Matatlán, Oaxaca. Un brindis con propósito — pedí directo por WhatsApp.',
         theme_color: '#FBF3E4',

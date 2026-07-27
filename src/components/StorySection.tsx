@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { ShieldCheck, Leaf, Gem, HeartHandshake } from 'lucide-react'
-import perro from '../assets/brand/perro.png'
 import xoloPhoto from '../assets/photos/story-xolo.jpg'
+import standPhoto from '../assets/photos/stand-expo.jpg'
 import patternMitla from '../assets/brand/pattern-mitla.png'
+import patternPicos from '../assets/brand/pattern-picos.png'
 import PatternDivider from './PatternDivider'
 import { story, xolo, mission, vision, values } from '../data/content'
 
@@ -43,24 +44,12 @@ export default function StorySection() {
           {story.eyebrow}
         </motion.p>
 
-        <div className="mt-6 grid items-center gap-10 sm:grid-cols-[220px_1fr] sm:gap-14">
-          <motion.img
-            src={perro}
-            alt="Totopo, el perro que inspira la marca"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto w-40 rounded-full bg-obsidian-950 p-6 sm:w-full"
-          />
-
-          <div>
-            <h2 className="text-3xl text-cream-50 light:text-teal-950 sm:text-4xl">{story.title}</h2>
-            <div className="mt-5 space-y-4 font-body text-base leading-relaxed text-cream-200 light:text-teal-900/75">
-              {story.paragraphs.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
-            </div>
+        <div className="mt-6 max-w-2xl">
+          <h2 className="text-3xl text-cream-50 light:text-teal-950 sm:text-4xl">{story.title}</h2>
+          <div className="mt-5 space-y-4 font-body text-base leading-relaxed text-cream-200 light:text-teal-900/75">
+            {story.paragraphs.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
           </div>
         </div>
       </div>
@@ -115,8 +104,32 @@ export default function StorySection() {
             <p className="mt-2 font-body text-sm text-cream-200 light:text-teal-900/75">{vision.body}</p>
           </motion.div>
         </div>
+      </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-4">
+      <div className="mt-12">
+        <PatternDivider src={patternPicos} height={16} className="opacity-80 light:invert light:opacity-50" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative h-72 w-full overflow-hidden sm:h-96"
+        >
+          <img
+            src={standPhoto}
+            alt="Stand de Totopo Mezcal en una expo, con la manada Totopo"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </motion.div>
+        <PatternDivider
+          src={patternPicos}
+          height={16}
+          className="rotate-180 opacity-80 light:invert light:opacity-50"
+        />
+      </div>
+
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mt-12 grid gap-4 sm:grid-cols-4">
           {values.map((v, i) => {
             const Icon = valueIcons[i]
             return (

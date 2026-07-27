@@ -49,6 +49,7 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
 
   return (
     <header
+      style={{ paddingTop: 'env(safe-area-inset-top)' }}
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled
           ? 'bg-teal-950/95 shadow-lg backdrop-blur light:bg-cream-50/95'

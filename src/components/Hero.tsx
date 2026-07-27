@@ -10,7 +10,8 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-obsidian-950 pt-24 text-cream-50"
+      style={{ paddingTop: 'calc(6rem + env(safe-area-inset-top))' }}
+      className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-obsidian-950 text-cream-50"
     >
       <img
         src={heroPhoto}
