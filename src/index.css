@@ -189,6 +189,43 @@ h3 {
     0 16px 40px rgba(4, 27, 29, 0.12);
 }
 
+/* Barrido dorado: un anillo de luz que recorre el borde una sola vez,
+   de la esquina inferior-derecha a la superior-izquierda. Se usa como
+   confirmación "premium" al agregar algo al carrito. El elemento se
+   monta de nuevo (key distinto) cada vez que hay que repetirlo, porque
+   una animación CSS no se reinicia sola si la clase no cambia. */
+@keyframes gold-sweep {
+  0% {
+    background-position: 160% 160%;
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    background-position: -60% -60%;
+    opacity: 0;
+  }
+}
+.sweep-gold {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: 1.5px;
+  background-image: conic-gradient(
+    from 135deg at 50% 50%,
+    transparent 0deg,
+    var(--color-gold-300) 15deg,
+    transparent 40deg
+  );
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: gold-sweep 1.1s ease-out 1;
+}
+
 @keyframes float-gentle {
   0%,
   100% {

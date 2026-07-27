@@ -4,6 +4,7 @@ import logo from '../assets/brand/logo.png'
 import { nav } from '../data/content'
 import { useCart } from '../context/CartContext'
 import { useTheme } from '../hooks/useTheme'
+import GoldSweep from './GoldSweep'
 
 export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
   const [open, setOpen] = useState(false)
@@ -23,8 +24,9 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
     <button
       onClick={onCartClick}
       aria-label="Ver carrito"
-      className={`relative flex items-center gap-2 rounded-full bg-gold-500 px-4 py-2 font-eyebrow text-xs text-teal-950 transition hover:bg-gold-300 ${className}`}
+      className={`relative flex items-center gap-2 overflow-hidden rounded-full bg-gold-500 px-4 py-2 font-eyebrow text-xs text-teal-950 transition hover:bg-gold-300 ${className}`}
     >
+      {totalCount > 0 && <GoldSweep triggerKey={totalCount} />}
       <ShoppingBag size={14} strokeWidth={2.5} />
       Carrito
       {totalCount > 0 && (
@@ -58,16 +60,26 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
           <img src={logo} alt="Totopo Mezcal Artesanal" className="h-10 w-auto light:invert" />
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="font-eyebrow text-xs text-cream-100/90 transition hover:text-gold-500 light:text-teal-950/80 light:hover:text-wine-700"
-            >
-              {item.label}
-            </a>
-          ))}
+        <nav className="hidden items-center gap-6 md:flex">
+          {nav.map((item) =>
+            item.highlight ? (
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-full border border-gold-500 px-4 py-1.5 font-eyebrow text-xs text-gold-500 transition hover:bg-gold-500 hover:text-teal-950 light:border-wine-700 light:text-wine-700 light:hover:bg-wine-700 light:hover:text-cream-50"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                className="font-eyebrow text-xs text-cream-100/90 transition hover:text-gold-500 light:text-teal-950/80 light:hover:text-wine-700"
+              >
+                {item.label}
+              </a>
+            ),
+          )}
           <ThemeButton />
           <CartButton />
         </nav>
@@ -94,7 +106,11 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="font-eyebrow text-sm text-cream-100/90 light:text-teal-950/80"
+                className={
+                  item.highlight
+                    ? 'font-eyebrow text-sm text-gold-500 light:text-wine-700'
+                    : 'font-eyebrow text-sm text-cream-100/90 light:text-teal-950/80'
+                }
               >
                 {item.label}
               </a>

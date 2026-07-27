@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { X, Plus, Minus, Trash2, MessageCircle } from 'lucide-react'
+import { X, Plus, Minus, Trash2, MessageCircle, ShoppingBag, ArrowRight } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 import { buildOrderLink } from '../lib/cartWhatsapp'
 
@@ -53,9 +53,22 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
             </div>
 
             {lines.length === 0 ? (
-              <p className="mt-10 text-center font-body text-sm text-cream-200/60 light:text-teal-900/50">
-                Todavía no agregaste nada.
-              </p>
+              <div className="mt-10 flex flex-1 flex-col items-center text-center">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-cream-50/8 text-gold-500 light:bg-teal-950/6 light:text-wine-700">
+                  <ShoppingBag size={22} strokeWidth={1.75} />
+                </span>
+                <p className="mt-4 font-body text-sm text-cream-200/70 light:text-teal-900/60">
+                  Todavía no agregaste nada. Elige tu mezcal y arma tu pedido.
+                </p>
+                <a
+                  href="#producto"
+                  onClick={onClose}
+                  className="mt-5 flex items-center gap-2 rounded-full bg-gold-500 px-5 py-2.5 font-eyebrow text-xs text-teal-950 transition hover:bg-gold-300"
+                >
+                  Ver catálogo
+                  <ArrowRight size={14} strokeWidth={2.5} />
+                </a>
+              </div>
             ) : (
               <div className="mt-6 flex-1 space-y-3">
                 {lines.map(({ product, qty }) => (

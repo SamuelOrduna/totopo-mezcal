@@ -8,7 +8,7 @@ export function waLink(message: string) {
 }
 
 export const nav = [
-  { label: 'Producto', href: '#producto' },
+  { label: 'Comprar', href: '#producto', highlight: true },
   { label: 'Quiénes somos', href: '#historia' },
   { label: 'Cómo lo hacemos', href: '#proceso' },
   { label: 'Contacto', href: '#contacto' },

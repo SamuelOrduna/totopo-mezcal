@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ShoppingBag, ChevronRight } from 'lucide-react'
 import { useCart } from '../context/CartContext'
+import GoldSweep from './GoldSweep'
 
 export default function CartBar({ onOpen }: { onOpen: () => void }) {
   const { totalCount, totalPrice } = useCart()
@@ -17,8 +18,9 @@ export default function CartBar({ onOpen }: { onOpen: () => void }) {
         >
           <button
             onClick={onOpen}
-            className="glass-shine flex w-full items-center gap-3 rounded-2xl bg-gold-500 px-5 py-4 text-teal-950 shadow-xl shadow-black/40 transition hover:bg-gold-300 sm:w-auto sm:min-w-[22rem] sm:rounded-full"
+            className="glass-shine relative flex w-full items-center gap-3 overflow-hidden rounded-2xl bg-gold-500 px-5 py-4 text-teal-950 shadow-xl shadow-black/40 transition hover:bg-gold-300 sm:w-auto sm:min-w-[22rem] sm:rounded-full"
           >
+            <GoldSweep triggerKey={totalCount} />
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-950/15">
               <ShoppingBag size={16} strokeWidth={2.25} />
             </span>
