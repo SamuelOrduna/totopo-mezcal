@@ -14,7 +14,7 @@ import InstallSection from './components/InstallSection'
 import ContactFooter from './components/ContactFooter'
 import CartDrawer from './components/CartDrawer'
 import CartBar from './components/CartBar'
-import InstallModal from './components/InstallModal'
+import InstallToast from './components/InstallToast'
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true)
@@ -38,7 +38,7 @@ export default function App() {
       <ContactFooter />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       {!cartOpen && <CartBar onOpen={() => setCartOpen(true)} />}
-      {!showSplash && ageVerified && <InstallModal />}
+      {!showSplash && ageVerified && <InstallToast />}
     </CartProvider>
   )
 }
